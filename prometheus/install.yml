@@ -1,0 +1,39 @@
+---
+- hosts: prometheus
+  remote_user: ubuntu
+  become: yes 
+  tasks: 
+    - name: Install wget latest version 
+      apt: 
+        name: wget
+        state: present 
+        update_cache: yes
+    #- name: Download Promtheus Binary from Source prometheus-2.35.0-rc0.linux-386.tar.gz 
+    #  get_url:
+    #    url: https://github.com/prometheus/prometheus/releases/download/v2.35.0-rc0/prometheus-2.35.0-rc0.linux-386.tar.gz
+    #    dest: /home/ubuntu/
+    #    checksum: sha256:fba14c913a32e98fed75e8109c50f0904abe679dfae864e4bb10b58ec64fd3e9 
+    #- name: Uncompress File 
+    #  shell: "tar xvzf prometheus-2.35.0-rc0.linux-386.tar.gz && chown -R ubuntu:ubuntu prometheus-2.35.0-rc0.linux-386"
+    #- name: Create Prometheus System User  
+    #  shell: "userdel prometheus && useradd --no-create-home '--shell' /bin/false prometheus"
+    #- name: Create Node-Exporter User  
+    #  shell: "userdel node-exporter && useradd --no-create-home '--shell' /bin/false node-exporter"
+    # - name: Update Prometheus User
+    #   shell: "mkdir /etc/prometheus; 
+    #           chown prometheus:prometheus /etc/prometheus; 
+    #           mkdir /var/lib/prometheus;
+    #           chown prometheus:prometheus /var/lib/prometheus"
+    # - name: Copy Prometheus Binary files
+    #   shell: "cp /home/ubuntu/prometheus-2.35.0-rc0.linux-386/prometheus /usr/local/bin/; 
+    #           cp /home/ubuntu/prometheus-2.35.0-rc0.linux-386/promtool /usr/local/bin/; 
+    #           chown prometheus:prometheus /usr/local/bin/prometheus; 
+    #           chown prometheus:prometheus /usr/local/bin/promtool"
+    - name: Copy Prometheus Console Libraries
+      shell: "cp -r /home/ubuntu/prometheus-2.35.0-rc0.linux-386/consoles /etc/prometheus; 
+              cp -r /home/ubuntu/prometheus-2.35.0-rc0.linux-386/console_libraries /etc/prometheus; 
+              cp -r /home/ubuntu/prometheus-2.35.0-rc0.linux-386/prometheus.yml /etc/prometheus;
+              chown -R prometheus:prometheus /etc/prometheus/consoles;
+              chown -R prometheus:prometheus /etc/prometheus/console_libraries;
+              chown -R prometheus:prometheus /etc/prometheus/prometheus.yml"
+    
