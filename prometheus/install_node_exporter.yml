@@ -1,5 +1,5 @@
 ---
-- hosts: 
+- hosts: webserver
   remote_user: ubuntu
   gather_facts: false
   become: yes

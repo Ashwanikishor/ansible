@@ -1,5 +1,5 @@
 [webserver]
-	3.109.176.69
+	3.108.17.34 ansible_ssh_private_key_file=/Users/ashwanikishor/Downloads/sssg-dev/SSSG-FA-DEV.pem
 [prometheus]
 	3.109.176.69 ansible_ssh_private_key_file=/Users/ashwanikishor/Downloads/sssg-dev/SSSG-FA-DEV.pem
 [db]
