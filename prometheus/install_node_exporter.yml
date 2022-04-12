@@ -1,0 +1,32 @@
+---
+- hosts: 
+  remote_user: ubuntu
+  gather_facts: false
+  become: yes
+  tasks: 
+    - name: Download node_exporter
+      get_url: 
+        url: "https://github.com/prometheus/node_exporter/releases/download/v1.3.1/node_exporter-1.3.1.linux-386.tar.gz" 
+        dest: /home/ubuntu
+        checksum: sha256:9ef308fccba1927b9f49bc8cf046eb5617d49b3da2748f1b39b53c3394ef9615
+    - name: Create node_exporter User 
+      user: 
+        name: node_exporter
+        group: node_exporter
+        shell: /usr/sbin/nologin 
+        create_home: no 
+        state: true
+    - name: Uncompress Node_exporter 
+      shell: "tar xvzf node_exporter-1.3.1.linux-386.tar.gz; mv node_exporter-1.3.1.linux-386/node_exporter  /usr/local/bin; chown -R node_exporter:node_exporter /usr/local/bin/node_exporter"
+    - name: Create node_exporter Service File 
+      copy:
+        src: node_exporter.service
+        dest: /etc/systemd/system/
+    - name: 
+      shell: "sudo systemctl daemon-reload"
+    - name: Start and Enable Node_exporter Service 
+      service: node_exporter
+      state: restarted
+      enable: yes
+
+    
