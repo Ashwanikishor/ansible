@@ -1,0 +1,21 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets:
+
+rule_files:
+
+scrape_configs:
+  - job_name: "prometheus"
+    static_configs:
+            - targets: ["localhost:9090"]
+              labels:
+                group: 'Prometheus-master'
+  - job_name: "dev-nodes"
+    static_configs:
+            - targets: ["10.1.0.36:9100","10.1.0.7:9100","10.1.0.39:9100"]
+              labels:
+                 group: 'dev-nodes'

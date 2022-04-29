@@ -1,0 +1,36 @@
+# This Ansible Script will Install Redis Exporter (https://github.com/oliver006/redis_exporter/releases)
+# https://github.com/oliver006/redis_exporter/releases/download/v1.37.0/redis_exporter-v1.37.0.linux-386.tar.gz
+---
+- hosts: redis-server
+  remote_user: ubuntu
+  become: yes 
+  tasks: 
+    - name: Delete Older Files 
+      shell: "sudo rm -rf /home/ubuntu/redis_exporter* /usr/local/bin/redis_exporter* "
+    - name: Download Redis exporter 
+       get_url: 
+       url: https://github.com/oliver006/redis_exporter/releases/download/v1.37.0/redis_exporter-v1.37.0.linux-386.tar.gz 
+       dest: /home/ubuntu/
+    
+    - name: Create redis_exporter Group 
+      group: 
+        name: redis_exporter
+        state: present 
+    
+    - name: Create redis_exporter User 
+      user: 
+        name: redis_exporter
+        group: redis_exporter
+        shell: /usr/sbin/nologin 
+        create_home: no 
+        state: present  
+    
+    - name: Uncompress File 
+      shell: "tar xvzf redis_exporter-v1.37.0.linux-386.tar.gz; mv redis_exporter-v1.37.0.linux-386/redis_exporter /usr/local/bin/; chown -R redis_exporter:redis_exporter /usr/local/bin/redis_exporter"
+    
+    - name: Restart redis_Exporter Service 
+      systemd: 
+        daemon_reload: yes
+        name: redis_exporter.service
+        enabled: yes
+        state: restarted
