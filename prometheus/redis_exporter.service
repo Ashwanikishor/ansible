@@ -1,22 +1,13 @@
 [Unit]
-Description=Prometheus
-Documentation=https://github.com/oliver006/redis_exporter
+Description=Redis Exporter
 Wants=network-online.target
 After=network-online.target
 
 [Service]
+User=root
+Group=root
 Type=simple
-User=prometheus
-Group=prometheus
-ExecReload=/bin/kill -HUP $MAINPID
-ExecStart=/usr/local/bin/redis_exporter \
-  --log-format=txt \
-  --namespace=redis \
-  --web.listen-address=:9121 \
-  --web.telemetry-path=/metrics
-
-SyslogIdentifier=redis_exporter
-Restart=always
+ExecStart=/usr/local/bin/redis_exporter -web.listen-address ":9121" -redis.addr "redis://10.1.0.113:6379" -redis.password "j8XWAe4Fkff6KJWKF20zIS8"
 
 [Install]
 WantedBy=multi-user.target
