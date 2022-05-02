@@ -1,0 +1,27 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets:
+
+rule_files:
+
+scrape_configs:
+  - job_name: "prometheus"
+    static_configs:
+            - targets: ["prometheus-server:9090"]
+              labels:
+                group: 'Prometheus'
+  - job_name: "dev-nodes"
+    static_configs:
+            - targets: ["10.1.0.36:9100","10.1.0.7:9100","10.1.0.39:9100","10.1.0.17:9100","10.1.0.135:9100","10.1.0.115:9100","10.1.0.113:9100","10.1.0.110:9100","10.1.0.108:9100","10.1.0.119:9100","10.1.0.107:9100"]
+              labels:
+                 group: 'dev'
+
+  - job_name: "redis-server"
+    static_configs:
+            - targets: ["10.1.0.113:9121"]
+              labels:
+                  group: 'redis-server'
