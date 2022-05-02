@@ -1,17 +1,13 @@
 [webserver]
 	3.108.17.34 ansible_ssh_private_key_file=/Users/ashwanikishor/Downloads/sssg-dev/SSSG-FA-DEV.pem
+
 [dev-node]
 	13.232.78.142 ansible_ssh_private_key_file=/Users/ashwanikishor/Downloads/sssg-dev/SSSG-FA-DEV.pem
 	#3.108.17.34 ansible_ssh_private_key_file=/Users/ashwanikishor/Downloads/sssg-dev/SSSG-FA-DEV.pem
-	# 3.108.17.34 ansible_ssh_private_key_file=/Users/ashwanikishor/Downloads/sssg-dev/SSSG-FA-DEV.pem
-	# 3.108.17.34 ansible_ssh_private_key_file=/Users/ashwanikishor/Downloads/sssg-dev/SSSG-FA-DEV.pem
-	# 3.108.17.34 ansible_ssh_private_key_file=/Users/ashwanikishor/Downloads/sssg-dev/SSSG-FA-DEV.pem
-	# 3.108.17.34 ansible_ssh_private_key_file=/Users/ashwanikishor/Downloads/sssg-dev/SSSG-FA-DEV.pem
-	# 3.108.17.34 ansible_ssh_private_key_file=/Users/ashwanikishor/Downloads/sssg-dev/SSSG-FA-DEV.pem
-	# 3.108.17.34 ansible_ssh_private_key_file=/Users/ashwanikishor/Downloads/sssg-dev/SSSG-FA-DEV.pem
-	# 3.108.17.34 ansible_ssh_private_key_file=/Users/ashwanikishor/Downloads/sssg-dev/SSSG-FA-DEV.pem
-	# 3.108.17.34 ansible_ssh_private_key_file=/Users/ashwanikishor/Downloads/sssg-dev/SSSG-FA-DEV.pem
+
 [prometheus]
 	3.109.176.69 ansible_ssh_private_key_file=/Users/ashwanikishor/Downloads/sssg-dev/SSSG-FA-DEV.pem
-[db]
-	3.109.176.69
+
+[grafana]
+	3.109.176.69 ansible_ssh_private_key_file=/Users/ashwanikishor/Downloads/sssg-dev/SSSG-FA-DEV.pem
+

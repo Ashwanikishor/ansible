@@ -30,7 +30,7 @@
     
       - name: Create redis_exporter Service File 
       copy:
-        src: redis_exporter.service
+        src: service/redis_exporter.service
         dest: /etc/systemd/system/
     
     - name: Restart redis_Exporter Service 
