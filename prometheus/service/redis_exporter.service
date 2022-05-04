@@ -7,7 +7,7 @@ After=network-online.target
 User=root
 Group=root
 Type=simple
-ExecStart=/usr/local/bin/redis_exporter -web.listen-address ":9121" -redis.addr "redis://10.1.0.113:6379" -redis.password "j8XWAe4Fkff6KJWKF20zIS8"
+ExecStart=/usr/local/bin/redis_exporter -web.listen-address ":9121" -redis.addr "redis://0.0.0.0:6379" -redis.password "YourPassword"
 
 [Install]
 WantedBy=multi-user.target
