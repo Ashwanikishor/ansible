@@ -5,10 +5,11 @@
   remote_user: ubuntu
   become: yes 
   tasks: 
-    # - name: Delete Older Files 
-    #   shell: "sudo rm -rf /home/ubuntu/mysqld_exporter-* /usr/local/bin/mysqld_exporter* "
+    - name: Delete Older Files 
+      shell: "sudo rm -rf /home/ubuntu/mysqld_exporter-* /usr/local/bin/mysqld_exporter* "
+
     - name: Download Mysql exporter 
-       get_url: 
+      get_url:
        url: https://github.com/prometheus/mysqld_exporter/releases/download/v0.14.0/mysqld_exporter-0.14.0.linux-amd64.tar.gz
        dest: /home/ubuntu/
     
