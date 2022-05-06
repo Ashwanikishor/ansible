@@ -31,18 +31,18 @@
     
     - name: Create mysqld_exporter Service File 
       copy:
-        src: service/mysqld_exporter.service
+        src: /Users/ashwanikishor/Projects/Ansible/prometheus/service/mysqld_exporter.service
         dest: /etc/systemd/system/
  
-    - name: Create Prometheus exporter database user
-      mysql_user: 
-        name: mysqld_exporter
-        password: 'exporter@123'
-        login_user: root 
-        login_password: Yq9wyxM#+C
-        host: localhost
-        priv: '*.*:ALL'
-        state: present
+    # - name: Create Prometheus exporter database user
+    #   mysql_user: 
+    #     name: mysqld_exporter
+    #     password: 'exporter@123'
+    #     login_user: root 
+    #     login_password: Yq9wyxM#+C
+    #     host: localhost
+    #     priv: '*.*:ALL'
+    #     state: present
   
     - name: Restart mysqld_Exporter Service 
       systemd: 
