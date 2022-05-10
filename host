@@ -1,16 +1,34 @@
 [webserver]
-	3.108.17.34 ansible_ssh_private_key_file=/Users/ashwanikishor/Downloads/sssg-dev/SSSG-FA-DEV.pem
+	#3.108.17.34 ansible_ssh_private_key_file=/Users/ashwanikishor/Downloads/sssg-dev/SSSG-FA-DEV.pem
 
 [dev-node]
-	13.232.78.142 ansible_ssh_private_key_file=/Users/ashwanikishor/Downloads/sssg-dev/SSSG-FA-DEV.pem
+	#13.232.78.142 ansible_ssh_private_key_file=/Users/ashwanikishor/Downloads/sssg-dev/SSSG-FA-DEV.pem
 	#3.108.17.34 ansible_ssh_private_key_file=/Users/ashwanikishor/Downloads/sssg-dev/SSSG-FA-DEV.pem
 
 [prometheus]
-	3.109.176.69 ansible_ssh_private_key_file=/Users/ashwanikishor/Downloads/sssg-dev/SSSG-FA-DEV.pem
+	#3.109.176.69 ansible_ssh_private_key_file=/Users/ashwanikishor/Downloads/sssg-dev/SSSG-FA-DEV.pem
 
 [grafana]
-	3.109.176.69 ansible_ssh_private_key_file=/Users/ashwanikishor/Downloads/sssg-dev/SSSG-FA-DEV.pem
+	#3.109.176.69 ansible_ssh_private_key_file=/Users/ashwanikishor/Downloads/sssg-dev/SSSG-FA-DEV.pem
 
 [dbserver]
-	13.232.78.142 ansible_ssh_private_key_file=/Users/ashwanikishor/Downloads/sssg-dev/SSSG-FA-DEV.pem
+	#13.232.78.142 ansible_ssh_private_key_file=/Users/ashwanikishor/Downloads/sssg-dev/SSSG-FA-DEV.pem
 
+	
+[prod-webserver]
+	3.111.255.49 ansible_ssh_private_key_file=/Users/ashwanikishor/Downloads/sssg/SuperSixSports-Live-AWS-Clients.pem
+	3.111.216.74 ansible_ssh_private_key_file=/Users/ashwanikishor/Downloads/sssg/SuperSixSports-Live-AWS-Clients.pem
+	65.0.166.57 ansible_ssh_private_key_file=/Users/ashwanikishor/Downloads/sssg/SuperSixSports-Live-AWS-Clients.pem
+[prod-user]
+	13.127.116.218 ansible_ssh_private_key_file=/Users/ashwanikishor/Downloads/sssg/SuperSixSports-Live-AWS-Clients.pem
+	43.204.2.177 ansible_ssh_private_key_file=/Users/ashwanikishor/Downloads/sssg/SuperSixSports-Live-AWS-Clients.pem
+	43.204.78.241 ansible_ssh_private_key_file=/Users/ashwanikishor/Downloads/sssg/SuperSixSports-Live-AWS-Clients.pem
+[prod-fantasy]
+	43.204.5.231 ansible_ssh_private_key_file=/Users/ashwanikishor/Downloads/sssg/SuperSixSports-Live-AWS-Clients.pem
+	15.207.62.106 ansible_ssh_private_key_file=/Users/ashwanikishor/Downloads/sssg/SuperSixSports-Live-AWS-Clients.pem
+	65.1.83.120 ansible_ssh_private_key_file=/Users/ashwanikishor/Downloads/sssg/SuperSixSports-Live-AWS-Clients.pem
+
+[prod-scorecard]
+	15.206.62.175 ansible_ssh_private_key_file=/Users/ashwanikishor/Downloads/sssg/SuperSixSports-Live-AWS-Clients.pem
+	35.154.79.117 ansible_ssh_private_key_file=/Users/ashwanikishor/Downloads/sssg/SuperSixSports-Live-AWS-Clients.pem
+	43.204.6.61 ansible_ssh_private_key_file=/Users/ashwanikishor/Downloads/sssg/SuperSixSports-Live-AWS-Clients.pem
