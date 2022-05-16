@@ -1,0 +1,19 @@
+---
+- hosts: prod-webserver
+  remote_user: ubuntu
+  gather_facts: false
+  become: yes
+  tasks: 
+  # - name: Update File in Server Location 
+  #     copy:
+  #       src: /Users/ashwanikishor/Downloads/sssg/contact-us.html
+  #       dest: /var/www/html/brandpage
+  - name: Take Backup of file before updating
+    copy:
+        src: /Users/ashwanikishor/Downloads/sssg/contact-us.html
+        dest: /var/www/html/brandpage/contact-us.html
+        owner: ubuntu
+        group: ubuntu
+        mode: 0755
+        backup: yes
+        # remote_src: yes
